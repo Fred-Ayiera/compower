@@ -101,7 +101,7 @@
             padding: 15px 0;
         }
 
-        .logo {mask-image: ;
+        .logo {
             display: flex;
             align-items: center;
         }
@@ -225,7 +225,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Programs Section */
+        /* Programs Section - Redesigned */
         .programs {
             padding: 80px 0;
             background-color: var(--light-color);
@@ -244,6 +244,8 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .program-card:hover {
@@ -252,8 +254,9 @@
         }
 
         .program-image {
-            height: 200px;
+            height: 220px;
             overflow: hidden;
+            position: relative;
         }
 
         .program-image img {
@@ -267,14 +270,41 @@
             transform: scale(1.1);
         }
 
+        .program-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
         .program-info {
             padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .program-info h3 {
             color: var(--primary-color);
             margin-bottom: 15px;
             font-size: 1.5rem;
+        }
+
+        .program-info p {
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .program-stats {
+            display: flex;
+            justify-content: space-between;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
         }
 
         /* Get Involved Section */
@@ -413,6 +443,31 @@
             resize: vertical;
         }
 
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
         /* Footer */
         footer {
             background-color: var(--dark-color);
@@ -512,6 +567,14 @@
             .section-title {
                 font-size: 1.8rem;
             }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 30px;
+                right: 30px;
+                font-size: 25px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -526,16 +589,18 @@
             .footer-col {
                 min-width: 100%;
             }
+
+            .whatsapp-float {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 22px;
+            }
         }
 
         /* Animation Styles */
         .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -548,6 +613,99 @@
         .active-link::after {
             width: 100% !important;
         }
+
+        /* Donation Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: modalopen 0.5s;
+        }
+
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--primary-color);
+        }
+
+        .donation-steps {
+            margin: 20px 0;
+        }
+
+        .donation-step {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .mpesa-number {
+            background-color: var(--light-color);
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .copy-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .copy-btn:hover {
+            background-color: #e0a500;
+        }
     </style>
 </head>
 <body>
@@ -555,7 +713,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="COMPOWERSOCIETY LOGO.jpg" alt=>
+                <img src="COMPOWERSOCIETY LOGO.jpg" alt="Compower Society Logo">
                 <div class="logo-text">
                     <h1>Compower Society</h1>
                     <p>Building hope one act at a time</p>
@@ -565,7 +723,7 @@
                 <ul>
                     <li><a href="#home" class="nav-link active-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#programs" class="nav-link">Programs</a></li>
+                    <li><a href="#programs" class="nav-link">Our Programs</a></li>
                     <li><a href="#get-involved" class="nav-link">Get Involved</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -605,36 +763,65 @@
         </div>
     </section>
 
-    <!-- Programs Section -->
+    <!-- Programs Section - Redesigned -->
     <section class="programs" id="programs">
         <div class="container">
-            <h2 class="section-title">Our Mentorship Programs</h2>
+            <h2 class="section-title">Our Programs</h2>
             <div class="programs-grid">
                 <div class="program-card fade-in">
                     <div class="program-image">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Youth Mentorship">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mentorship Programs">
+                        <div class="program-category">Mentorship</div>
                     </div>
                     <div class="program-info">
-                        <h3>Youth Empowerment</h3>
-                        <p>Our youth mentorship program pairs young individuals with experienced mentors who provide guidance, career advice, and personal development support.</p>
+                        <h3>Mentorship Programs</h3>
+                        <p>Comprehensive mentorship initiatives that connect experienced professionals with individuals seeking guidance in personal and professional development.</p>
+                        <div class="program-stats">
+                            <span><i class="fas fa-users"></i> 150+ Mentees</span>
+                            <span><i class="fas fa-star"></i> 4.9/5 Rating</span>
+                        </div>
                     </div>
                 </div>
                 <div class="program-card fade-in">
                     <div class="program-image">
-                        <img src="https://images.unsplash.com/photo-1573497491765-dccce02b29df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Career Development">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Empowerment Programs">
+                        <div class="program-category">Empowerment</div>
+                    </div>
+                    <div class="program-info">
+                        <h3>Empowerment Programs</h3>
+                        <p>Skill-building workshops and training sessions designed to equip individuals with practical skills for economic independence and self-sufficiency.</p>
+                        <div class="program-stats">
+                            <span><i class="fas fa-graduation-cap"></i> 200+ Graduates</span>
+                            <span><i class="fas fa-calendar"></i> Monthly</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Career Development">
+                        <div class="program-category">Career</div>
                     </div>
                     <div class="program-info">
                         <h3>Career Development</h3>
-                        <p>We help individuals develop professional skills, prepare for interviews, and navigate career transitions through one-on-one mentorship.</p>
+                        <p>Professional development programs including resume building, interview preparation, and career counseling to help individuals advance in their careers.</p>
+                        <div class="program-stats">
+                            <span><i class="fas fa-briefcase"></i> 80% Success</span>
+                            <span><i class="fas fa-clock"></i> Flexible</span>
+                        </div>
                     </div>
                 </div>
                 <div class="program-card fade-in">
                     <div class="program-image">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community Support">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community Support">
+                        <div class="program-category">Community</div>
                     </div>
                     <div class="program-info">
                         <h3>Community Support</h3>
-                        <p>Our community programs connect vulnerable individuals with mentors who provide emotional support, life skills training, and access to resources.</p>
+                        <p>Rescue and support services for vulnerable community members, providing essential resources, counseling, and rehabilitation programs.</p>
+                        <div class="program-stats">
+                            <span><i class="fas fa-hands-helping"></i> 500+ Helped</span>
+                            <span><i class="fas fa-home"></i> Shelter</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -651,7 +838,7 @@
                     <i class="fas fa-hand-holding-heart"></i>
                     <h3>Donate</h3>
                     <p>Your financial support helps us expand our programs and reach more individuals in need.</p>
-                    <a href="#" class="btn" style="margin-top: 15px;">Donate Now</a>
+                    <button class="btn" style="margin-top: 15px;" id="donate-btn">Donate Now</button>
                 </div>
                 <div class="involved-card fade-in">
                     <i class="fas fa-user-plus"></i>
@@ -685,6 +872,7 @@
                     <div class="social-links">
                         <a href="https://www.tiktok.com/@compower.society?_t=ZM-8xRqD22e3Q0&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                         <a href="https://www.instagram.com/compower_society?igsh=ZHpiNm93ajljNTcw" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/254793482598" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="contact-form fade-in">
@@ -722,7 +910,7 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#programs">Our Programs</a></li>
                         <li><a href="#get-involved">Get Involved</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -741,6 +929,56 @@
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/254793482598" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Donation Modal -->
+    <div id="donationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Support Our Cause</h2>
+            <p>Your donation helps us continue our mission of empowering individuals through mentorship and support programs.</p>
+            
+            <div class="donation-steps">
+                <h3>Donate via M-Pesa</h3>
+                <div class="donation-step">
+                    <div class="step-number">1</div>
+                    <div>Go to M-Pesa on your phone</div>
+                </div>
+                <div class="donation-step">
+                    <div class="step-number">2</div>
+                    <div>Select "Lipa na M-Pesa"</div>
+                </div>
+                <div class="donation-step">
+                    <div class="step-number">3</div>
+                    <div>Select "Pay Bill"</div>
+                </div>
+                <div class="donation-step">
+                    <div class="step-number">4</div>
+                    <div>Enter business number: <strong>0793482598</strong></div>
+                </div>
+                <div class="donation-step">
+                    <div class="step-number">5</div>
+                    <div>Enter your donation amount</div>
+                </div>
+                <div class="donation-step">
+                    <div class="step-number">6</div>
+                    <div>Enter your M-Pesa PIN and send</div>
+                </div>
+            </div>
+            
+            <div class="mpesa-number">
+                <div>Our M-Pesa Number:</div>
+                <div id="mpesaNumber">0793482598</div>
+                <button class="copy-btn" id="copyBtn">Copy Number</button>
+            </div>
+            
+            <p>Thank you for your generous support! Your contribution makes a real difference in people's lives.</p>
+        </div>
+    </div>
 
     <script>
         // Mobile Menu Toggle
@@ -803,7 +1041,6 @@
 
         // Form Submission
         const messageForm = document.getElementById('messageForm');
-        
         messageForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -820,25 +1057,35 @@
             messageForm.reset();
         });
 
-        // Scroll Animation
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('visible');
-                }
+        // Donation Modal Functionality
+        const donationModal = document.getElementById('donationModal');
+        const donateBtn = document.getElementById('donate-btn');
+        const closeBtn = document.querySelector('.close');
+        const copyBtn = document.getElementById('copyBtn');
+
+        donateBtn.addEventListener('click', () => {
+            donationModal.style.display = 'block';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            donationModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === donationModal) {
+                donationModal.style.display = 'none';
+            }
+        });
+
+        copyBtn.addEventListener('click', () => {
+            const mpesaNumber = document.getElementById('mpesaNumber').textContent;
+            navigator.clipboard.writeText(mpesaNumber).then(() => {
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy Number';
+                }, 2000);
             });
-        };
-        
-        // Run once on page load
-        fadeInOnScroll();
-        
-        // Run on scroll
-        window.addEventListener('scroll', fadeInOnScroll);
+        });
     </script>
 </body>
 </html>
