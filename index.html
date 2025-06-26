@@ -107,7 +107,7 @@
         }
 
         .logo img {
-            height: 40px;
+            height: 50px;
             margin-right: 10px;
         }
 
@@ -713,7 +713,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="COMPOWERSOCIETY LOGO.jpg" alt="Compower Society Logo">
+                <img src="https://via.placeholder.com/50x50?text=CS" alt="Compower Society Logo">
                 <div class="logo-text">
                     <h1>Compower Society</h1>
                     <p>Building hope one act at a time</p>
@@ -774,10 +774,10 @@
                         <div class="program-category">Mentorship</div>
                     </div>
                     <div class="program-info">
-                        <h3>Mentorship Programs</h3>
-                        <p>Comprehensive mentorship initiatives that connect experienced professionals with individuals seeking guidance in personal and professional development.</p>
+                        <h3>Youth Mentorship</h3>
+                        <p>Comprehensive mentorship initiatives that connect experienced professionals with young individuals seeking guidance in personal and professional development.</p>
                         <div class="program-stats">
-                            <span><i class="fas fa-users"></i> 150+ Mentees</span>
+                            <span><i class="fas fa-users"></i> 250+ Mentees</span>
                             <span><i class="fas fa-star"></i> 4.9/5 Rating</span>
                         </div>
                     </div>
@@ -788,10 +788,10 @@
                         <div class="program-category">Empowerment</div>
                     </div>
                     <div class="program-info">
-                        <h3>Empowerment Programs</h3>
-                        <p>Skill-building workshops and training sessions designed to equip individuals with practical skills for economic independence and self-sufficiency.</p>
+                        <h3>Women's Empowerment</h3>
+                        <p>Skill-building workshops and training sessions designed to equip women with practical skills for economic independence and self-sufficiency.</p>
                         <div class="program-stats">
-                            <span><i class="fas fa-graduation-cap"></i> 200+ Graduates</span>
+                            <span><i class="fas fa-graduation-cap"></i> 320+ Graduates</span>
                             <span><i class="fas fa-calendar"></i> Monthly</span>
                         </div>
                     </div>
@@ -805,7 +805,7 @@
                         <h3>Career Development</h3>
                         <p>Professional development programs including resume building, interview preparation, and career counseling to help individuals advance in their careers.</p>
                         <div class="program-stats">
-                            <span><i class="fas fa-briefcase"></i> 80% Success</span>
+                            <span><i class="fas fa-briefcase"></i> 85% Success</span>
                             <span><i class="fas fa-clock"></i> Flexible</span>
                         </div>
                     </div>
@@ -819,8 +819,36 @@
                         <h3>Community Support</h3>
                         <p>Rescue and support services for vulnerable community members, providing essential resources, counseling, and rehabilitation programs.</p>
                         <div class="program-stats">
-                            <span><i class="fas fa-hands-helping"></i> 500+ Helped</span>
+                            <span><i class="fas fa-hands-helping"></i> 750+ Helped</span>
                             <span><i class="fas fa-home"></i> Shelter</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Education Support">
+                        <div class="program-category">Education</div>
+                    </div>
+                    <div class="program-info">
+                        <h3>Education Support</h3>
+                        <p>Scholarship programs and school support initiatives for underprivileged children to access quality education and learning resources.</p>
+                        <div class="program-stats">
+                            <span><i class="fas fa-book"></i> 120 Students</span>
+                            <span><i class="fas fa-school"></i> 5 Schools</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Entrepreneurship">
+                        <div class="program-category">Business</div>
+                    </div>
+                    <div class="program-info">
+                        <h3>Entrepreneurship</h3>
+                        <p>Training and funding programs to help aspiring entrepreneurs start and grow their businesses with mentorship and small grants.</p>
+                        <div class="program-stats">
+                            <span><i class="fas fa-store"></i> 45 Startups</span>
+                            <span><i class="fas fa-money-bill-wave"></i> 2M+ Funding</span>
                         </div>
                     </div>
                 </div>
@@ -925,7 +953,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Compower Society. All Rights Reserved.</p>
+                <p>&copy; 2025 Compower Society. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1051,41 +1079,4 @@
             
             // Here you would typically send the form data to a server
             // For demonstration, we'll just show an alert
-            alert(`Thank you, ${name}! Your message has been received. We'll contact you at ${email} soon.`);
-            
-            // Reset the form
-            messageForm.reset();
-        });
-
-        // Donation Modal Functionality
-        const donationModal = document.getElementById('donationModal');
-        const donateBtn = document.getElementById('donate-btn');
-        const closeBtn = document.querySelector('.close');
-        const copyBtn = document.getElementById('copyBtn');
-
-        donateBtn.addEventListener('click', () => {
-            donationModal.style.display = 'block';
-        });
-
-        closeBtn.addEventListener('click', () => {
-            donationModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === donationModal) {
-                donationModal.style.display = 'none';
-            }
-        });
-
-        copyBtn.addEventListener('click', () => {
-            const mpesaNumber = document.getElementById('mpesaNumber').textContent;
-            navigator.clipboard.writeText(mpesaNumber).then(() => {
-                copyBtn.textContent = 'Copied!';
-                setTimeout(() => {
-                    copyBtn.textContent = 'Copy Number';
-                }, 2000);
-            });
-        });
-    </script>
-</body>
-</html>
+            alert(`Thank you, ${name}! Your message has been received. We'll contact you at ${email} soon
